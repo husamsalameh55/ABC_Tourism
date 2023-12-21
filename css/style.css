@@ -1,0 +1,486 @@
+:root {
+  --red:#e94336;
+  --green:#02a150;
+  --blue:#4283f2;
+  --yellow:#f9bb09;
+  --hh:70px;
+  --dbr: 3px;
+  --btn: #0095f6;
+  --btnt: #ffffff;
+  --ablu: #0095f6;
+  --header:#4283f2;
+  --bg:#e1e1e1;
+  --o:#ffffff;
+  --ot:#262626;
+  --ht:#ffffff;
+  --pt:#777777;
+  --eoh:#1f1f1f;
+  --ol5:rgba(0,0,0,0.5);
+  --i: #fafafa;
+  --it: #8e8e8e;
+  --ib:#dbdbdb;
+  --io: #a8a8a8;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.root * {
+  display: flex;
+}
+.root *:not(.r) {
+  flex-direction: column;
+}
+.root *.r {
+  flex-direction: row;
+}
+.root *.rr {
+  flex-direction: row-reverse;
+}
+.root *.jc {
+  justify-content: center;
+}
+.root *.je {
+  justify-content: flex-end;
+}
+.root *.jsb {
+  justify-content: space-between;
+}
+.root *.jse {
+  justify-content: space-evenly;
+}
+.root *.jsa {
+  justify-content: space-around;
+}
+.root *.ac {
+  align-items: center;
+}
+.root *.as {
+  align-items: stretch;
+}
+.root *.ae {
+  align-items: flex-end;
+}
+.root *.fs0 {
+  flex-shrink: 0;
+}
+.root *.g25 {
+  gap: 25px;
+}
+.root *.cg5 {
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+.root *.cg10 {
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.root *.cg15 {
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+.root *.cg20 {
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.root *.cg25 {
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+}
+.root *.rg15 {
+  row-gap: 15px;
+}
+.root *.fw {
+  flex-wrap: wrap;
+}
+.root *.fwr {
+  flex-wrap: wrap-reverse;
+}
+.root *.fg {
+  flex-grow: 1;
+}
+
+img.c {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+a:not(.df) {
+  color: inherit;
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--bg);
+  position: relative;
+  color: var(--ot);
+}
+
+body, body > div, body > div > header {
+  overflow: hidden;
+}
+
+body > div > div {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: calc(100vh - var(--hh));
+}
+
+.pb15 {
+  padding-block: 15px;
+}
+
+.pb35 {
+  padding-block: 35px;
+}
+
+.pi25 {
+  padding-inline: 25px;
+}
+
+.pb5 {
+  padding-block: 5px;
+}
+
+.p15 {
+  padding: 15px;
+}
+
+.p20 {
+  padding: 20px;
+}
+
+.p25 {
+  padding: 25px;
+}
+
+.pbs25 {
+  padding-block-start: 25px;
+}
+
+.pr {
+  position: relative;
+}
+
+.ol {
+  border: 0;
+  outline: 0;
+  background-color: var(--ol5);
+  position: fixed;
+  inset-block: 0;
+  z-index: 5;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  inset-inline: 0;
+  width: 0px;
+  transition: width 400ms;
+}
+.ol.active {
+  display: flex;
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  header > div * {
+    height: 100%;
+  }
+  header > div > div:nth-child(2) > nav > a {
+    position: relative;
+    font-weight: 600;
+    justify-content: center;
+    padding-inline: 15px;
+  }
+  header > div > div:nth-child(2) > nav > a::after {
+    content: "";
+    height: 3px;
+    inset-block-end: 0;
+    inset-inline: 0;
+    position: absolute;
+    width: 0;
+    margin-inline: auto;
+    background-color: var(--ht);
+    transition: width 200ms;
+  }
+  header > div > div:nth-child(2) > nav > a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  header > div > div:nth-child(2) > nav > a:hover::after {
+    width: 100%;
+  }
+  header > div > div:nth-child(2) > button {
+    display: none;
+  }
+  .root .sec > div {
+    min-width: 400px;
+  }
+  .root .sec > div:first-child {
+    padding: 35px 80px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  header > div > div:nth-child(2) {
+    order: -1;
+  }
+  header > div > div:nth-child(2) > nav.mnav {
+    position: fixed;
+    z-index: 6;
+    inset-block-start: 0;
+    inset-inline-start: -215px;
+    flex-direction: column;
+    width: 200px;
+    transition: inset-inline-start 300ms;
+    background-color: var(--header);
+    inset-block: 0;
+    justify-content: flex-start;
+    padding-block-start: 15px;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  header > div > div:nth-child(2) > nav.mnav > a {
+    padding-block: 10px;
+    font-weight: 600;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  header > div > div:nth-child(2) > nav.mnav.active {
+    inset-inline-start: 0;
+  }
+}
+@media screen and (max-width: 359px) {
+  .logo_div > a > b {
+    display: none;
+  }
+  .root .sec > div {
+    min-width: 265px;
+  }
+}
+.dbr {
+  border-radius: var(--dbr);
+}
+
+a.blu {
+  color: var(--ablu);
+}
+
+@media screen and (min-width: 800px) {
+  .form_wrapper {
+    background-color: var(--o);
+    border: 1px solid var(--ob);
+  }
+  .root .pdiv > img {
+    display: flex;
+  }
+}
+input[type=text], input[type=password], input[type=email], input[type=username], input[type=tel], input[type=number] {
+  width: 100%;
+  height: 36px;
+  border: 1px solid var(--ib);
+  background-color: var(--i);
+  color: var(--it);
+  border-radius: var(--dbr);
+  padding-inline: 15px;
+  font-size: 16px;
+}
+
+input[type=text]:focus-visible, input[type=tel]:focus-visible, input[type=password]:focus-visible, input[type=email]:focus-visible, input[type=username]:focus-visible, input[type=number]:focus-visible {
+  outline: 0;
+  border-color: var(--io);
+}
+
+.root .btn {
+  background-color: var(--btn);
+  color: var(--btnt);
+  height: 36px;
+  padding-inline: 15px;
+  width: 100%;
+  border: 0;
+  border-radius: var(--dbr);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+}
+.root .btn:hover {
+  opacity: 0.8;
+}
+
+.h {
+  display: none;
+}
+
+.mbs30 {
+  margin-block-start: 30px;
+}
+
+.team_cards > div {
+  background-color: var(--o);
+  border-radius: 4px;
+  padding: 10px;
+  width: 40%;
+  overflow: hidden;
+}
+.team_cards > div p {
+  color: var(--pt);
+}
+
+.numid {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.none {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+
+header {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 4;
+}
+header > div {
+  background-color: var(--header);
+  height: var(--hh);
+  color: var(--ht);
+}
+header > div > div > button.mode {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  padding: 5px;
+  transition: background-color 300ms;
+}
+header > div > div > button.mode:hover {
+  background-color: var(--eoh);
+}
+
+.logo_div > a {
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+.logo_div > a > img {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.catmenu {
+  width: 36px;
+  height: 36px;
+}
+.catmenu::after, .catmenu::before, .catmenu > i {
+  content: "";
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  background-color: var(--ht);
+  border-radius: 3px;
+}
+.catmenu::after {
+  top: 10%;
+}
+.catmenu::before {
+  bottom: 10%;
+}
+.catmenu > i {
+  top: 16px;
+}
+
+.users_circles {
+  gap: 1rem;
+}
+
+section {
+  background-color: var(--o);
+}
+section.mysec {
+  border-bottom: 1px solid var(--i);
+  padding: 1.5rem 3rem;
+}
+section.mysec > div {
+  display: grid;
+  padding: unset;
+  grid-template-areas: "h1 img" "p img" "a img";
+}
+section.mysec > div > :nth-child(3) > a {
+  max-width: 250px;
+}
+section.mysec > div > :nth-child(4) {
+  align-items: flex-end;
+}
+section.mysec > div > :nth-child(4) > img {
+  min-height: 100%;
+}
+section.mysec > div > h1 {
+  grid-area: h1;
+}
+section.mysec > div > div:nth-child(4) {
+  grid-area: img;
+}
+section.mysec > div > p {
+  grid-area: p;
+}
+section.mysec > div > div:nth-child(3) {
+  grid-area: a;
+}
+section.mysec > div > :nth-child(4) > img {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+section.mysec_3c {
+  padding: 1rem 3rem;
+}
+section.mysec_3c > div > div {
+  flex-direction: row;
+}
+
+.root .branches {
+  padding: 4rem 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.root .branches > div {
+  background-color: var(--o);
+  border-radius: var(--dbr);
+  padding: 0.7rem;
+  display: grid;
+  grid-template-areas: "icon h4" "h51 h51" "h52 h52" "h53 h53";
+  align-items: center;
+  gap: 0.5rem;
+}
+.root .branches > div > img {
+  grid-area: icon;
+}
+.root .branches > div > h4 {
+  grid-area: h4;
+}
+.root .branches > div > h5:nth-child(3) {
+  grid-area: h51;
+}
+.root .branches > div > h5:nth-child(4) {
+  grid-area: h52;
+}
+.root .branches > div > h5:nth-child(5) {
+  grid-area: h53;
+}/*# sourceMappingURL=style.css.map */
